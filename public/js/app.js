@@ -4,13 +4,22 @@
 $(document).ready(function() {
     console.log('jQuery is readyssss!');
     // Your custom jQuery code
-    $('#myElement').click(function() {
+    $(document).on('click', '#login-form', function(evt) {
+        evt.preventDefault();
+
+        var form_data = new FormData(this);
         $.ajax({
-            method: 'GET',
-            url: '/api/fetch', // Note the /api prefix
+            method: 'POST',
+            url: '/api/login',
+            data: form_data,
+            contentType: false,
+            processData: false,
             success: function(response) {
-                console.log(response);
-                // Handle the response
+                localStorage.setItem('axhr_token', response.data.token.plainTextToken)
+
+                const axhr_token = localStorage.getItem('axhr_token');
+                    
+                console.log(axhr_token);
             },
             error: function(xhr, status, error) {
                 console.error(error);

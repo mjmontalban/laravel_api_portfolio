@@ -11,15 +11,17 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ])
-    .scripts([
-        'node_modules/jquery/dist/jquery.min.js',
-        'resources/js/custom.js'
-    ], 'public/js/app.js');
+mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+    require('tailwindcss'),
+    require('autoprefixer'),
+]) .scripts([
+    'node_modules/jquery/dist/jquery.min.js',
+    'resources/js/custom.js'
+], 'public/js/app.js');
 
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery']
 });
+
+
+

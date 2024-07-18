@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookingsController\Bookings;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth:sanctum'])->name('dashboard');
 
-Route::get('/bookings', [Bookings::class, 'bookings']);
+require __DIR__.'/auth.php';
