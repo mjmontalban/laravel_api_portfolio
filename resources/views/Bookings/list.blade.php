@@ -1,7 +1,6 @@
-<html>
-<ul>
-    @foreach ($bookings as $booking)
-        <li>{{ $booking->title }} [ {{ $booking->user->name }} ]</li>
-    @endforeach
-</ul>
-</html>
+@extends('layouts.app')
+
+@section('content')
+ <h4>Content</h4>
+<button id="myElement">click me</button>
+@endsection
