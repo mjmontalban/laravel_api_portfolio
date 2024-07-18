@@ -10,4 +10,9 @@ class Bookings extends BaseController
    public function bookings() {
         return view('bookings.list');
    }
+
+
+   public function get_bookings() {
+        return view('bookings.list');
+   }
 }
